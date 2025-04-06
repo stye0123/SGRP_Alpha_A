@@ -1060,16 +1060,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMoveSpeed: 3
-  playerBaseAttack: 34
-  playerAttackInterval: 1
-  bulletSpeed: 10
+  playerBaseAttack: 10
+  playerAttackInterval: 0.3
+  bulletSpeed: 8
   playerAttackRange: 5
   enemySpawnDistance: 15
-  enemyMoveSpeed: 1
+  enemyMoveSpeed: 0.9
   enemyBaseHealth: 100
-  enemySpawnRateStart: 0.2
-  enemySpawnRateEnd: 1
-  expPickupRange: 2
+  enemySpawnRateStart: 0.5
+  enemySpawnRateEnd: 2
+  expPickupRange: 1
   expAttackBonus: 1
   maxPlayerHits: 10
 --- !u!4 &1196135882
@@ -1201,7 +1201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4c1b5ae5a7a7a0e4799226790abb0f14, type: 3}
+  m_Sprite: {fileID: 21300000, guid: feb012e155411924eb042e341553a2d0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
