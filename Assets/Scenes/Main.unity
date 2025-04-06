@@ -1040,13 +1040,13 @@ MonoBehaviour:
   pools:
   - tag: Enemy
     prefab: {fileID: 246016242392593185, guid: 0d94b8bb7da4850468fa72bc9d6c59f5, type: 3}
-    size: 50
+    size: 1000
   - tag: Bullet
     prefab: {fileID: 22795639016983818, guid: a1cb37ed2dd233a4f85e36ef55f2e6d9, type: 3}
-    size: 100
+    size: 200
   - tag: ExpOrb
     prefab: {fileID: 8681993293408995573, guid: 0b6e2d1a1f6224c4f81add028aba9033, type: 3}
-    size: 30
+    size: 1000
 --- !u!114 &1196135881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1061,17 +1061,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMoveSpeed: 3
   playerBaseAttack: 10
-  playerAttackInterval: 0.3
+  playerAttackInterval: 0.1
+  playerAttackRange: 3
+  maxPlayerHits: 10
   bulletSpeed: 8
-  playerAttackRange: 5
-  enemySpawnDistance: 15
+  enemySpawnDistance: 7
   enemyMoveSpeed: 0.9
   enemyBaseHealth: 100
-  enemySpawnRateStart: 0.5
-  enemySpawnRateEnd: 2
-  expPickupRange: 1
+  enemySpawnRateStart: 5
+  enemySpawnRateEnd: 80
+  expPickupRange: 1.5
   expAttackBonus: 1
-  maxPlayerHits: 10
 --- !u!4 &1196135882
 Transform:
   m_ObjectHideFlags: 0

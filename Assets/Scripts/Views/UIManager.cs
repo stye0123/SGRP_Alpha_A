@@ -50,17 +50,17 @@ public class UIManager : MonoBehaviour
 
     private void UpdateKillCount(int count)
     {
-        killCountText.text = $"擊殺數: {count}";
+        killCountText.text = $"Kill: {count}";
     }
 
     private void UpdateAttack(float attack)
     {
-        attackText.text = $"攻擊力: {attack:F1}";
+        attackText.text = $"ATK: {attack:F1}";
     }
 
     private void UpdatePlayerHits(int hits)
     {
-        playerHitsText.text = $"受傷次數: {hits}/10";
+        playerHitsText.text = $"HP: {hits}/10";
     }
 
     private void HandleGameStateChanged(GameManager.GameState state)
