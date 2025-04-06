@@ -18,17 +18,43 @@ public class GameManager : MonoBehaviour
 
     // 遊戲配置
     [Header("遊戲配置")]
+    [Tooltip("玩家移動速度（公尺/秒）")]
     public float playerMoveSpeed = 3f;
+    
+    [Tooltip("玩家基礎攻擊力")]
     public float playerBaseAttack = 34f;
+    
+    [Tooltip("玩家攻擊間隔（秒）")]
     public float playerAttackInterval = 1f;
+    
+    [Tooltip("子彈速度（公尺/秒）")]
     public float bulletSpeed = 10f;
+    
+    [Tooltip("玩家攻擊範圍（公尺）")]
+    public float playerAttackRange = 10f;
+    
+    [Tooltip("敵人生成距離（公尺）")]
     public float enemySpawnDistance = 30f;
+    
+    [Tooltip("敵人移動速度（公尺/秒）")]
     public float enemyMoveSpeed = 1f;
+    
+    [Tooltip("敵人基礎生命值")]
     public float enemyBaseHealth = 100f;
+    
+    [Tooltip("敵人生成初始頻率（個/秒）")]
     public float enemySpawnRateStart = 0.2f;
+    
+    [Tooltip("敵人生成最大頻率（個/秒）")]
     public float enemySpawnRateEnd = 1f;
+    
+    [Tooltip("經驗道具拾取範圍（公尺）")]
     public float expPickupRange = 5f;
+    
+    [Tooltip("每次拾取經驗增加的攻擊力")]
     public float expAttackBonus = 1f;
+    
+    [Tooltip("玩家最大受傷次數")]
     public int maxPlayerHits = 10;
 
     // 遊戲數據

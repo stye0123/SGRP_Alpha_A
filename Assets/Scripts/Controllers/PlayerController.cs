@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveDirection;
     private float lastAttackTime;
     private Transform nearestEnemy;
+    private float nearestEnemyDistance;
 
     private void Awake()
     {
@@ -20,11 +21,14 @@ public class PlayerController : MonoBehaviour
         float moveY = Input.GetAxisRaw("Vertical");
         moveDirection = new Vector2(moveX, moveY).normalized;
 
+        // 尋找最近的敵人
+        FindNearestEnemy();
+
         // 自動攻擊
         if (Time.time >= lastAttackTime + GameManager.Instance.playerAttackInterval)
         {
-            FindNearestEnemy();
-            if (nearestEnemy != null)
+            // 確保敵人在攻擊範圍內
+            if (nearestEnemy != null && nearestEnemyDistance <= GameManager.Instance.playerAttackRange)
             {
                 Attack();
             }
@@ -40,14 +44,15 @@ public class PlayerController : MonoBehaviour
     private void FindNearestEnemy()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        float nearestDistance = float.MaxValue;
+        nearestEnemyDistance = float.MaxValue;
+        nearestEnemy = null;
 
         foreach (GameObject enemy in enemies)
         {
             float distance = Vector2.Distance(transform.position, enemy.transform.position);
-            if (distance < nearestDistance)
+            if (distance < nearestEnemyDistance)
             {
-                nearestDistance = distance;
+                nearestEnemyDistance = distance;
                 nearestEnemy = enemy.transform;
             }
         }
@@ -57,12 +62,19 @@ public class PlayerController : MonoBehaviour
     {
         if (nearestEnemy != null)
         {
+            // 計算方向向量
             Vector2 direction = (nearestEnemy.position - transform.position).normalized;
+            
+            // 計算角度
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
+            // 設置子彈生成位置（稍微偏移以避免碰撞）
+            Vector3 spawnPosition = transform.position + new Vector3(direction.x, direction.y, 0) * 0.5f;
+
+            // 生成子彈
             GameObject bullet = ObjectPoolManager.Instance.SpawnFromPool(
                 "Bullet",
-                transform.position,
+                spawnPosition,
                 Quaternion.Euler(0, 0, angle)
             );
 
@@ -71,6 +83,7 @@ public class PlayerController : MonoBehaviour
                 Bullet bulletComponent = bullet.GetComponent<Bullet>();
                 if (bulletComponent != null)
                 {
+                    // 初始化子彈
                     bulletComponent.Initialize(direction, GameManager.Instance.bulletSpeed, GameManager.Instance.CurrentAttack);
                 }
             }

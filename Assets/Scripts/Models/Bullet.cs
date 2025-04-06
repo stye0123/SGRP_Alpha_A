@@ -22,7 +22,16 @@ public class Bullet : MonoBehaviour, IPooledObject
     public void OnObjectSpawn()
     {
         // 重置子彈狀態
-        rb.velocity = direction * speed;
+        if (rb != null)
+        {
+            rb.velocity = Vector2.zero;
+        }
+    }
+
+    private void Update()
+    {
+        // 使用Transform直接移動子彈
+        transform.position += (Vector3)(direction * speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,5 +45,11 @@ public class Bullet : MonoBehaviour, IPooledObject
             }
             ObjectPoolManager.Instance.ReturnToPool("Bullet", gameObject);
         }
+    }
+
+    private void OnBecameInvisible()
+    {
+        // 當子彈離開畫面時返回物件池
+        ObjectPoolManager.Instance.ReturnToPool("Bullet", gameObject);
     }
 } 
