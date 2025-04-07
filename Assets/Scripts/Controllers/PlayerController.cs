@@ -33,6 +33,12 @@ public class PlayerController : MonoBehaviour
                 Attack();
             }
         }
+
+        // 添加调试信息
+        if (nearestEnemy != null)
+        {
+            Debug.Log($"玩家位置: {transform.position}, 敌人位置: {nearestEnemy.position}, 距离: {nearestEnemyDistance}, 玩家速度: {rb.velocity}");
+        }
     }
 
     private void FixedUpdate()
@@ -92,10 +98,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        Debug.Log($"触发器检测到物体: {other.gameObject.name}, 标签: {other.gameObject.tag}, 位置: {other.transform.position}");
+        if (other.CompareTag("Enemy"))
         {
+            Debug.Log("检测到敌人触发器，增加受伤次数");
             GameManager.Instance.AddPlayerHit();
         }
     }

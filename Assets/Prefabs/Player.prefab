@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6252430790051212378}
   - component: {fileID: 261953246172499441}
   - component: {fileID: -7111697365570099740}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &261953246172499441
 CircleCollider2D:
@@ -143,12 +143,12 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.00064226985, y: 0}
   serializedVersion: 2
-  m_Radius: 0.06779699
+  m_Radius: 0.15
 --- !u!114 &-7111697365570099740
 MonoBehaviour:
   m_ObjectHideFlags: 0
