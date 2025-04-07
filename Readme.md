@@ -1,6 +1,7 @@
 # 2D倖存者遊戲
 
-這是一款基於Unity開發的2D倖存者類型遊戲。
+Survivor Game Research Project
+研究性質的2D倖存者類型遊戲測試。
 
 ## 遊戲特色
 
