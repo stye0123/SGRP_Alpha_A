@@ -75,7 +75,8 @@ public class PlayerController : MonoBehaviour
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
             // 設置子彈生成位置（稍微偏移以避免碰撞）
-            Vector3 spawnPosition = transform.position + new Vector3(direction.x, direction.y, 0) * 0.5f;
+            //Vector3 spawnPosition = transform.position + new Vector3(direction.x, direction.y, 0) * 0.5f;
+            Vector3 spawnPosition = transform.position;
 
             // 生成子彈
             GameObject bullet = ObjectPoolManager.Instance.SpawnFromPool(

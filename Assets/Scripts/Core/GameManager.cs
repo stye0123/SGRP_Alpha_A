@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     // 子彈參數
     [Header("子彈參數")]
     [Tooltip("子彈速度（公尺/秒）")]
-    public float bulletSpeed = 10f;
+    public float bulletSpeed = 30f;
     
     // 敵人參數
     [Header("敵人參數")]
